@@ -1,38 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,700;1,700&family=Oswald:wght@200&family=Red+Hat+Mono:wght@300;400&family=Roboto:wght@100;500&family=Rowdies&family=Yanone+Kaffeesatz:wght@500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
 .App {
-  text-align: center;
+  height: 100vh;
+  color: #4c6986;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 0 auto;
+  padding: 40px
+}
+.App.light {
+  height: 100vh;
+  background-color: #4b4b4b;
+  color: #91c3f5;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 0 auto;
+  padding: 40px
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.title {
+  max-width: 500px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h1 {
+  font-size: 70px;
+  font-weight: bold;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.restart {
+  width: 175px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  border: 2px solid #4c6986;
+  transition: all 0.2s ease; 
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 30px;
+
+}
+
+.restart:hover {
+  background-color: #4c6986;
+  color: white; 
+}
+
+.theme {
+  padding-top: 20px;
+  padding-left: 20px;
+  display: flex;
+  width: 90px;
+  cursor: pointer;
+  justify-content: space-between;
+}
+
+.game {
+  width: 500px;
+  height: 500px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+}
+
+.header {
+  display: flex;
+  color: #9A9A9A;
+  font-size: 24px;
+}
+
+.header .player-X {
+  flex: 1;
+  border-bottom: 5px solid #eee;
+  padding-bottom: 8px;
+}
+
+.player-X.active{
+  color: #42BED7;
+  border-color: #42BED7;
+}
+
+.header .player-O {
+  flex: 1;
+  border-bottom: 5px solid #eee;
+  padding-bottom: 8px;
+}
+
+.player-O.active{
+  color: #D7BAFB;
+  border-color: #D7BAFB;
+}
+
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 0px;
+  flex-grow: 1;
+  padding: 10px;
+  /* background-color: yellow; */
+}
+
+.board-tile {
+  background-color: white;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  font-size: 80px;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.board-tile.light {
+  background-color: rgb(63, 63, 63);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 80px;
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.board-tile:not(:nth-child(3n)) {
+  border-right: 3px solid rgba(137, 163, 189, 0.3);
+}
+
+.board-tile:not(:nth-last-child(-n+3)) {
+  border-bottom: 3px solid rgba(137, 163, 189, 0.3);
+}
+
+.board-tile:hover {
+  background-color: #eeeeee;
+}
+
+.tile-x {
+  color: #42BED7;
+}
+
+.tile-o {
+  color: #D7BAFB;
+}
+
+.tile-winner span{
+  color: #23CE6B
+}
+
+@media only screen and (max-width: 1200px) {
+  .App {
+    flex-direction: column;
   }
-  to {
-    transform: rotate(360deg);
+  .left {
+    margin-bottom: 50px;
   }
 }
