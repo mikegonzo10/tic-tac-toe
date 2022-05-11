@@ -120,8 +120,6 @@ class Game {
     return null;
   }
 
-
-
 ////////End of Game 
 
     endofGame() {
@@ -134,12 +132,9 @@ class Game {
 }
 }
 
-
-
 //////// Main GAME
 let game = new Game();
 let gameVeiw = new Gameveiw();
-
 
 
 let tiles = document.querySelectorAll(".board-tile")
@@ -164,10 +159,6 @@ const restartGame  = () => {
 
 
 gameVeiw.updateBoard(game);
-
-
-
-
 
   return (
     <div className={`App ${theme}`}>
